@@ -44,4 +44,9 @@ gitlab.example.com/api/v4/list
 * 异常过滤返回到前端
 * 业务代码主动抛出错误返回前端
 
+### 环境变量
+
+```bash
+pnpm install @nestjs/config
+```
 
