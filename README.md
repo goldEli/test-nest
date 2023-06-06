@@ -50,3 +50,5 @@ gitlab.example.com/api/v4/list
 pnpm install @nestjs/config
 ```
 
+### 热加载
+
