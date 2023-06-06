@@ -52,3 +52,10 @@ pnpm install @nestjs/config
 
 ### 热加载
 
+会有缓存问题，项目小直接用自带就可以
+
+### 文档
+
+```bash
+pnpm install @nestjs/swagger 
+```
