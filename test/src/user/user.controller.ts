@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -14,6 +15,11 @@ import { UpdateUserDto } from './dto/update-user.dto';
 @Controller('api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Get('find')
+  query(@Query('name') name: string, @Query('age') age: number) {
+    return `received: name=${name}, age=${age}`;
+  }
 
   @Get(':id')
   urlParam(@Param('id') id: string) {
