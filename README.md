@@ -59,3 +59,20 @@ pnpm install @nestjs/config
 ```bash
 pnpm install @nestjs/swagger 
 ```
+
+### TypeORM
+
+直接写 sql 可读性维护性很差，ORM 框架应运而生，Object Relational Mapping 面向对象处理关系型数据库
+
+### install mongo
+
+```
+docker pull mongodb/mongodb-community-server
+```
+
+```bash
+# -p 27017:27017 ：映射容器服务的 27017 端口到宿主机的 27017 端口。外部可以直接通过 宿主机 ip:27017 访问到 mongo 的服务。
+# --auth：需要密码才能访问容器服务。
+docker run -itd --name mongo -p 27017:27017 mongo --auth
+```
+

@@ -21,7 +21,7 @@ async function bootstrap() {
   // 接口版本化管理
   app.enableVersioning({
     type: VersioningType.URI,
-    defaultVersion: [VERSION_NEUTRAL, '1', '2'],
+    defaultVersion: [VERSION_NEUTRAL],
   });
 
   // 统一响应格式
