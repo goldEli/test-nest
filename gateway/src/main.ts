@@ -9,13 +9,21 @@ import { TransformInterceptor } from './common/interceptors/transform.intercepto
 import { AllExceptionsFilter } from './common/exceptions/base.exception.filter';
 import { HttpExceptionFilter } from './common/exceptions/http.exception.filter';
 import { generateDocument } from './doc';
+import { FastifyLogger } from './common/logger';
+import fastify from 'fastify';
 
 declare const module: any;
 
 async function bootstrap() {
+  // 日志
+
+  const fastifyInstance = fastify({
+    logger: FastifyLogger,
+  });
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter(),
+    new FastifyAdapter({ logger: true }),
   );
 
   // 接口版本化管理

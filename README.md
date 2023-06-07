@@ -96,3 +96,20 @@ REDIS_CONFIG:
   db: 1              # redis 数据库
 ```
 
+
+### log
+
+```js
+const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter({
+    logger: true
+  }));
+```
+
+自定义log
+
+```bash
+$ pnpm install fast-json-parse // 格式化返回对象
+$ pnpm install pino-multi-stream // 替换输出流
+$ pnpm install split2 // 处理文本流
+$ pnpm install dayjs // 可选，如果自己写时间格式化函数可以不用 
+```
