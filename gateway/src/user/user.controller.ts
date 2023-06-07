@@ -14,7 +14,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { BusinessException } from 'src/common/exceptions/business.exception';
 import { ConfigService } from '@nestjs/config';
-import { AddUserDto } from './user.dto';
+import { AddUserDto } from './dto/user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('用户')

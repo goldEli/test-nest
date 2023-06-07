@@ -3,7 +3,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { In, Like, Raw, MongoRepository } from 'typeorm';
 import { Injectable, Inject } from '@nestjs/common';
-import { User } from './user.mongo.entity';
+// import { User } from './user.mongo.entity';
+import { User } from './entities/user.mysql.entity';
 
 @Injectable()
 export class UserService {

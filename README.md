@@ -64,15 +64,35 @@ pnpm install @nestjs/swagger
 
 直接写 sql 可读性维护性很差，ORM 框架应运而生，Object Relational Mapping 面向对象处理关系型数据库
 
-### install mongo
-
-```
-docker pull mongodb/mongodb-community-server
-```
+### Mongo
 
 ```bash
 # -p 27017:27017 ：映射容器服务的 27017 端口到宿主机的 27017 端口。外部可以直接通过 宿主机 ip:27017 访问到 mongo 的服务。
 # --auth：需要密码才能访问容器服务。
 docker run -itd --name mongo -p 27017:27017 mongo --auth
+```
+
+### Mysql
+
+```bash
+docker pull mysql:5.7
+docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --name mysql5.7 mysql:5.7
+docker exec -it mysql5.7 /bin/bash
+mysql -uroot -proot
+CREATE DATABASE mydatabase;
+```
+```
+
+```bash
+```
+
+### redis
+
+```bash
+REDIS_CONFIG:
+  host: "localhost"  # redis 链接
+  port: 6379         # redis 端口
+  auth: "xxxx"       # redis 连接密码
+  db: 1              # redis 数据库
 ```
 

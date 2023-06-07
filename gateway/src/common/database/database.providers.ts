@@ -3,17 +3,15 @@ import { getConfig } from 'src/utils/index';
 const path = require('path');
 
 // 设置数据库类型
-const databaseType: DataSourceOptions['type'] = 'mongodb';
-const { MONGODB_CONFIG } = getConfig();
+// const databaseType: DataSourceOptions['type'] = 'mongodb';
+const databaseType: DataSourceOptions['type'] = 'mysql';
+const { MYSQL_CONFIG } = getConfig();
 
 const MONGODB_DATABASE_CONFIG = {
-  ...MONGODB_CONFIG,
+  ...MYSQL_CONFIG,
   type: databaseType,
   entities: [
-    path.join(
-      __dirname,
-      `../../**/*.${MONGODB_CONFIG.entities}.entity{.ts,.js}`,
-    ),
+    path.join(__dirname, `../../**/*.${MYSQL_CONFIG.entities}.entity{.ts,.js}`),
   ],
 };
 
