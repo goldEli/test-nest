@@ -7,14 +7,31 @@ import {
   Param,
   Delete,
   Query,
+  UseInterceptors,
+  UploadedFiles,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { AnyFilesInterceptor } from '@nestjs/platform-express';
 
 @Controller('api/user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
+
+  @Post('file')
+  @UseInterceptors(
+    AnyFilesInterceptor({
+      dest: 'uploads/',
+    }),
+  )
+  body2(
+    @Body() createUserDto: CreateUserDto,
+    @UploadedFiles() files: Array<Express.Multer.File>,
+  ) {
+    console.log(files);
+    return `received: ${JSON.stringify(createUserDto)}`;
+  }
 
   @Post()
   body(@Body() createUserDto: CreateUserDto) {
