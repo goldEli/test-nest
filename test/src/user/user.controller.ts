@@ -16,6 +16,11 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
+  @Post()
+  body(@Body() createUserDto: CreateUserDto) {
+    return `received: ${JSON.stringify(createUserDto)}`;
+  }
+
   @Get('find')
   query(@Query('name') name: string, @Query('age') age: number) {
     return `received: name=${name}, age=${age}`;
