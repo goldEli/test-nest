@@ -1,11 +1,21 @@
 import { AaaService } from './../aaa/aaa.service';
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  OnApplicationBootstrap,
+  OnModuleInit,
+} from '@nestjs/common';
 import { CreateBbbDto } from './dto/create-bbb.dto';
 import { UpdateBbbDto } from './dto/update-bbb.dto';
 
 @Injectable()
-export class BbbService {
+export class BbbService implements OnModuleInit, OnApplicationBootstrap {
   constructor(private aaaService: AaaService) {}
+  onApplicationBootstrap() {
+    console.log('BbbService OnModuleInit');
+  }
+  onModuleInit() {
+    console.log('BbbService OnApplicationBootstrap');
+  }
   create(createBbbDto: CreateBbbDto) {
     // this.aaaService.create
     return 'This action adds a new bbb';
