@@ -123,4 +123,20 @@ MVC: Controller =》 Model 层的 Service =》View
 如果想加一些日志记录、权限控制、异常处理，很容易想到在 Controller 中加，但是会污染业务代码，
 我们需要在以上逻辑外包一层，像洋葱圈一样，这就是 AOP 
 
-实现AOP的方式， 中间件
+实现AOP的方式
+* 路由中间件
+  * 日志 
+* 路由守卫Guard
+  * 调用 Controller 前执行
+  * 不能修改请求和返回
+* Interceptor 拦截器
+  * Controller 前后加一些逻辑
+* Pipe 
+  * 对参数做一些校验和转换
+* ExceptionFilter
+  * 处理异常
+
+AOP 机制的顺序
+Middleware、Guard、Pipe、Interceptor、ExceptionFilter 
+
+抽离某种处理逻辑添加到路由或者全部路由，这就是 AOP 的好处。
