@@ -113,3 +113,14 @@ $ pnpm install pino-multi-stream // 替换输出流
 $ pnpm install split2 // 处理文本流
 $ pnpm install dayjs // 可选，如果自己写时间格式化函数可以不用 
 ```
+
+### AOP
+
+Aspect Oriented Programming 面向切面编程
+MVC: Controller =》 Model 层的 Service =》View
+当一个请求过来先经过 Controller、 Service(Model)、 Repository(Model) 的逻辑，
+
+如果想加一些日志记录、权限控制、异常处理，很容易想到在 Controller 中加，但是会污染业务代码，
+我们需要在以上逻辑外包一层，像洋葱圈一样，这就是 AOP 
+
+实现AOP的方式， 中间件
