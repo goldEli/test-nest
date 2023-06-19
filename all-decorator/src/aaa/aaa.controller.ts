@@ -11,11 +11,15 @@ import {
   UseFilters,
   HttpException,
   HttpStatus,
+  ParseIntPipe,
+  Query,
+  ParseBoolPipe,
 } from '@nestjs/common';
 import { AaaService } from './aaa.service';
 import { CreateAaaDto } from './dto/create-aaa.dto';
 import { UpdateAaaDto } from './dto/update-aaa.dto';
 import { AaaFilter } from './aaa.filter';
+import { AaaDto } from './dto/aaa.dto';
 
 @Controller('aaa')
 export class AaaController {
@@ -26,11 +30,6 @@ export class AaaController {
   @Inject('miao')
   private readonly miao: Record<string, any>;
 
-  @Post()
-  create(@Body() createAaaDto: CreateAaaDto) {
-    return this.aaaService.create(createAaaDto);
-  }
-
   @Get()
   @UseFilters(AaaFilter)
   findAll() {
@@ -39,18 +38,19 @@ export class AaaController {
     return this.aaaService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.aaaService.findOne(+id);
+  @Get('/xxx/:aaa')
+  getHello2(
+    @Param('aaa', ParseIntPipe) aaa: number,
+    @Query('bbb', ParseBoolPipe) bbb: boolean,
+  ) {
+    console.log(typeof aaa, typeof bbb);
+    console.log(aaa, bbb);
+    return 'hello';
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAaaDto: UpdateAaaDto) {
-    return this.aaaService.update(+id, updateAaaDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.aaaService.remove(+id);
+  @Post('/bbb')
+  getHello3(@Body() aaa: AaaDto) {
+    console.log(aaa);
+    return 'hello3';
   }
 }
