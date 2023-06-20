@@ -140,3 +140,14 @@ AOP 机制的顺序
 Middleware、Guard、Pipe、Interceptor、ExceptionFilter 
 
 抽离某种处理逻辑添加到路由或者全部路由，这就是 AOP 的好处。
+
+### Decorator
+
+多个 Decorator 可合并
+
+### Execution Context
+
+Http websocket TCP 上下文都不一样，比如 http 能拿到request response ，但是 ws 没有，如何让 Guard interceptor filter 跨多种上下文复用？
+
+ArgumentHost 和 ExecutionContext 类
+
