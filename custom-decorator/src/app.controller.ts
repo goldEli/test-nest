@@ -11,8 +11,9 @@ import { Aaa } from './aaa.decorator';
 import { Bbb } from './bbb.decorator';
 import { Ccc } from './ccc.decorator';
 import { MyHeader } from './my-header.decorator';
+import { Ddd } from './ddd.decorator';
 
-@Controller()
+@Ddd('123', 'miao')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
