@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   Get,
   HttpException,
@@ -7,14 +8,35 @@ import {
   ParseBoolPipe,
   ParseFloatPipe,
   ParseIntPipe,
+  Post,
   Query,
+  ValidationPipe,
 } from '@nestjs/common';
 import { AppService } from './app.service';
 import { AaaPipe } from './aaa.pipe';
+import { Ooo } from './dto/ooo.dto';
+import { MyValidationPipe } from './my-validation.pipe';
+import { Ppp } from './dto/ppp.dto';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Post('ppp')
+  ppp(@Body() post: Ppp) {
+    console.log(post);
+    return post;
+  }
+  // @Post('ooo')
+  // ooo(@Body(new ValidationPipe()) obj: Ooo) {
+  //   console.log(obj);
+  //   return obj;
+  // }
+  @Post('ooo')
+  ooo(@Body() obj: Ooo) {
+    console.log(obj);
+    return obj;
+  }
 
   @Get()
   getHello(
