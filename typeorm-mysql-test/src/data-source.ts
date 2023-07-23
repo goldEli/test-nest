@@ -10,7 +10,7 @@ export const AppDataSource = new DataSource({
     password: "guang",
     database: "practice",
     synchronize: true,
-    entities: [User],
+    entities: ['./**/entity/*.ts'],
     migrations: [],
     subscribers: [],
     connectorPackage: 'mysql2',
